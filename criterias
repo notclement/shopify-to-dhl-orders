@@ -1,0 +1,40 @@
+Pickup order is fixed
+Shipment order ID - is shopify order number
+
+Shipping service code
+if other countries pps
+MY, AUS, US --> PLT
+
+non-covid
+PPS - 8-11 Working days
+PLT - 5-8 Working days
+
+provide city, state, postal code
+
+country code, check united kingdom isit GB
+
+some countries no postal code or have alphanumeric
+
+if two items in an order
+need to have multiple lines
+shipment weight will be total weight of that order
+for currency, total declared value will be the same
+
+shipment description is watch straps
+content description is each individual item in the order
+
+content weight add up should be same as the total weight
+
+
+print label > document printer > print using the label paper
+shipment submission > then i can select handover option > pick up
+MAKE SURE NO FURTHER CHANGES
+
+After press pickup or drop-off, still have to manually email them to confirm slot
+
+Press submit, then print in B&W then one for the delivery guy one for me
+
+PLT each country one bag
+PPS all tgt can also
+Each bag use red cable tie, theres a serial number, use white tag
+On white tag, write down 'Handover number - iWantAStrap - <bagnum>/<totalbags>'

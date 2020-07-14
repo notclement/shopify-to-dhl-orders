@@ -15,12 +15,16 @@ STEPS:
 """
 
 import csv
-import xlrd
+# from openpyxl import Workbook
+from datetime import datetime
+from shutil import copyfile
 
 DHL_DELIMITER = '\t'
 SHOPIFY_DELIMITER = ','
-DHL_HEADERS_FILE = './resources/dhl_csv_headers.xlsx'
+DHL_TEMPLATE_FILE = './resources/dhl_csv_headers.xlsx'
 
+
+# EXPORT_NAME = datetime.now().strftime('export_dhl_format_%Y-%m-%d_%H%Mhr.xlsx')
 
 def import_shopify_csv(path):
     with open(path) as csv_file:
@@ -30,12 +34,11 @@ def import_shopify_csv(path):
 
 
 def get_dhl_csv_format(path):
-    workbook = xlrd.open_workbook(path)
-    sheet = workbook.sheet_by_index(0)
+    pass
 
-    for row in range(sheet.nrows):
-        values = sheet.row_values(row)
-        print(values)
+
+def copy_dhl_template_to_export_folder(src, dst):
+    copyfile(src, dst)
 
 
 def main():
@@ -45,7 +48,10 @@ def main():
         shopify_csv = './resources/shopify_csv_headers.csv'
         # import_shopify_csv(shopify_csv)
 
-        get_dhl_csv_format(DHL_HEADERS_FILE)
+        # get_dhl_csv_format(DHL_TEMPLATE_FILE)
+
+        dhl_export_file_name = datetime.now().strftime('export_dhl_format_%Y-%m-%d_%H%M%S.xlsx')
+        copy_dhl_template_to_export_folder(DHL_TEMPLATE_FILE, './output/{}'.format(dhl_export_file_name))
 
     except IndexError:
         print('Please enter Shopify order csv as parameter.')

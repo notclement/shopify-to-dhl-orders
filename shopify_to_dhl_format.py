@@ -14,10 +14,15 @@ STEPS:
 (./output/dhl_<shopify_filename>.csv)
 """
 
+import sys
+from account_details import *
+from strap_stats import *
+from shipping_service import *
+
 
 def main():
     """This function will serve as a starting point for the program"""
-    pass
+    print(PICKUPACCOUNTNUMBER)
 
 
 if __name__ == '__main__':

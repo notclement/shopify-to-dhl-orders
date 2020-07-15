@@ -108,13 +108,13 @@ def add_line_into_dhl(line, dhl_file_path, line_num):
     content_origin_country.value = 'SG'
     content_quantity = ws[xcontent_quantity + str(line_num)]
     content_quantity.value = line[lineitem_quantity]
+    content_weight_g = ws[xcontent_weight_g + str(line_num)]
+    content_weight_g.value = check_product(line[lineitem_name])
     content_code = ws[xcontent_code + str(line_num)]
     content_code.value = line[lineitem_sku]
 
     # those that need to do checks before adding
-    content_weight_g = ws[xcontent_weight_g + str(line_num)]
-    content_weight_g.value = check_product(line[lineitem_name])
-    # print(get_column_letter(xcontent_description))
+
     # shipment_weight_g = ws[xshipment_weight_g+str(line_num)]
 
     # save the changes we made to the xlsx

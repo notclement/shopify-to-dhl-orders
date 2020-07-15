@@ -9,6 +9,8 @@ non-covid
 PPS - 8-11 Working days
 PLT - 5-8 Working days
 
+==
+
 provide city, state, postal code
 
 country code, check united kingdom isit GB
@@ -25,6 +27,7 @@ content description is each individual item in the order
 
 content weight add up should be same as the total weight
 
+==
 
 print label > document printer > print using the label paper
 shipment submission > then i can select handover option > pick up

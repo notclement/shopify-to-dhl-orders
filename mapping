@@ -1,0 +1,26 @@
+[Pick-up Account Number] <A>
+Name - Shipment Order ID <C>
+[Shipping Service Code] <E>
+Shipping Name - Consignee Name <G>
+Shipping Street - Address Line 1 <H>
+Shipping City - City <K>
+Shipping Province - State <L>
+Shipping Zip - Postal Code <M>
+Shipping Country - Destination Country Code <N>
+Shipping Phone - Phone Number <O>
+Email - Email Address <P>
+[Shipment Weight (g)] <Q>
+Currency - Currency Code <U>
+Total - Total Declared Value <V>
+'Watch Straps' - Shipment Description <AH>
+Lineitem name - Content Description <AL>
+Lineitem price - Content Unit Price <AO>
+'SG' - Content Origin Country <AP>
+Lineitem quantity - Content Quantity <AQ>
+[Content Weight (g)] <AR>
+Lineitem sku - Content Code <AS>
+
+[not included]
+Pick-up Account Number
+Shipping Service Code
+[/not included]

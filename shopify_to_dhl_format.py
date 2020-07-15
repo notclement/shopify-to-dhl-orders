@@ -15,15 +15,18 @@ STEPS:
 """
 
 import csv
+import sys
 from datetime import datetime
 from shutil import copyfile
 
 import openpyxl
+from openpyxl.utils import column_index_from_string
 
 from resources.account_details import *
 from resources.dhl_index_mapping import *
 from resources.shipping_service import *
 from resources.shopify_index_mapping import *
+from resources.strap_stats import *
 
 DHL_DELIMITER = '\t'
 SHOPIFY_DELIMITER = ','
@@ -109,8 +112,10 @@ def add_line_into_dhl(line, dhl_file_path, line_num):
     content_code.value = line[lineitem_sku]
 
     # those that need to do checks before adding
+    content_weight_g = ws[xcontent_weight_g + str(line_num)]
+    content_weight_g.value = check_product(line[lineitem_name])
+    # print(get_column_letter(xcontent_description))
     # shipment_weight_g = ws[xshipment_weight_g+str(line_num)]
-    # content_weight_g = ws[xcontent_weight_g + str(line_num)]
 
     # save the changes we made to the xlsx
     wb.save(dhl_file_path)
@@ -123,11 +128,23 @@ def get_shipping_srv_code(to_country):
         return 'PPS'
 
 
+def check_product(default_item_in_order):
+    item_in_order = default_item_in_order.lower()
+    weight_of_items_in_store = {
+        'sailcloth': STRAPWEIGHT,
+        'deployant': DEPLOYANTWEIGHT
+    }
+    for key in weight_of_items_in_store:
+        if key in item_in_order:
+            return str(int(weight_of_items_in_store[key]) + int(PACKINGENVELOPE))
+    return '69'
+
+
 def main():
     """This function will serve as a starting point for the program"""
     try:
-        # shopify_csv = sys.argv[1]
-        shopify_csv = './resources/shopify_csv_headers.csv'
+        shopify_csv = sys.argv[1]
+        # shopify_csv = './templates/shopify_csv_headers.csv'
 
         # cp the template into the export folder for editing
         copy_dhl_template_to_export_folder(DHL_TEMPLATE_FILE, EXPORT_PATH_NAME)

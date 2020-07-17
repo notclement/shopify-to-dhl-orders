@@ -19,6 +19,7 @@ Lineitem price - Content Unit Price <AO>
 Lineitem quantity - Content Quantity <AQ>
 [Content Weight (g)] <AR>
 Lineitem sku - Content Code <AS>
+Discount Amount - Remarks <AV>
 
 [not included]
 Pick-up Account Number

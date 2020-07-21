@@ -240,7 +240,7 @@ def main():
     """This function will serve as a starting point for the program"""
     try:
         shopify_csv = sys.argv[1]
-        # shopify_csv = './templates/shopify_csv_headers.csv'
+        # shopify_csv = './reference/shopify_csv_headers.csv'
 
         # cp the template into the export folder for editing
         copy_dhl_template_to_export_folder(DHL_TEMPLATE_FILE, EXPORT_PATH_NAME)

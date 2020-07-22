@@ -61,7 +61,7 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_filename))
             flash('File successfully uploaded as {}'.format(new_filename))
             flash('Please wait while we convert your file')
-            run_script(filename)
+            run_script(new_filename)
             return redirect('/getCSV')
         else:
             flash('Allowed file types are csv')
@@ -80,11 +80,11 @@ def output():
 @app.route("/getCSV")
 def getCSV():
     files = [x for x in os.listdir(PATH) if x.endswith(".xlsx")]
-    lst_fullpath = [glob.glob(PATH)[0]+'\\'+filename for filename in files]
-    newest = max(lst_fullpath, key=os.path.getmtime)
-    newest = newest.replace('site\\output\\', '')
+    # lst_fullpath = [glob.glob(PATH)[0]+'\\'+filename for filename in files]
+    # newest = max(lst_fullpath, key=os.path.getmtime)
+    # newest = newest.replace('site\\output\\', '')
     try:
-        return send_from_directory(app.config["OUTPUT_FOLDER"], filename=newest, as_attachment=True)
+        return send_from_directory(app.config["OUTPUT_FOLDER"], filename=files[0], as_attachment=True)
     except Exception as e:
         print(e)
         return '''
@@ -103,7 +103,7 @@ def getCSV():
 
 
 def run_script(filename):
-    shopify_to_dhl_format.main(filename)
+    shopify_to_dhl_format.main('.\\site\\uploads\\'+filename)
 
 
 if __name__ == "__main__":

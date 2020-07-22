@@ -6,9 +6,9 @@
 2. In that file, add `PICKUPACCOUNTNUMBER = 'xxx'` where xxx is your Pick-up Account Number provided by DHL
 3. To run - `python main.py`
 4. On a browser, go to `<yourip>:5000`
+5. Upload a file and it will process it and send it back to you once it is done.
 
 ![landingpage](https://i.imgur.com/dFcgZRQ.png)
-5. Upload a file and it will process it and send it back to you once it is done.
 
 ![file selected](https://i.imgur.com/Cs8Vln5.png)
 

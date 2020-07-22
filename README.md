@@ -7,12 +7,12 @@
 3. To run - `python main.py`
 4. On a browser, go to `<yourip>:5000`
 
-![landingpage](https://imgur.com/dFcgZRQ)
+![landingpage](https://i.imgur.com/dFcgZRQ.png)
 5. Upload a file and it will process it and send it back to you once it is done.
 
-![file selected](https://imgur.com/Cs8Vln5)
+![file selected](https://i.imgur.com/Cs8Vln5.png)
 
-![File returned from server](https://imgur.com/Cs8Vln5)
+![File returned from server](https://i.imgur.com/ntUwVTt.png)
 
 **Misc**
 1. To change your item stats, edit `.\resources\strap_stats.py`

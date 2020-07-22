@@ -1,0 +1,26 @@
+<!doctype html>
+<div style="text-align: center;">
+    <title>DHL Custom Converter</title>
+    <h2>Select a file to upload from Shopify format to DHL format</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <br>{{ message }}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    </p>
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit" style="width:50%;height:60px">
+        </p>
+    </form>
+</div>

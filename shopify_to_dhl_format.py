@@ -32,7 +32,7 @@ DHL_DELIMITER = '\t'
 SHOPIFY_DELIMITER = ','
 DHL_TEMPLATE_FILE = './resources/dhl_csv_headers.xlsx'
 EXPORT_NAME = datetime.now().strftime('export_dhl_format_%Y-%m-%d_%H%M%S.xlsx')
-EXPORT_PATH_NAME = './output/{}'.format(EXPORT_NAME)
+EXPORT_PATH_NAME = './site/output/{}'.format(EXPORT_NAME)
 
 
 def get_shopify_csv_by_line(path):
@@ -236,11 +236,13 @@ def populate_additional_data(wb, ws, filtered_dict):
         wb.save(EXPORT_PATH_NAME.format(EXPORT_NAME))
 
 
-def main():
+def main(optional_param=''):
     """This function will serve as a starting point for the program"""
     try:
-        shopify_csv = sys.argv[1]
-        # shopify_csv = './reference/shopify_csv_headers.csv'
+        if optional_param == '':
+            shopify_csv = sys.argv[1]
+        else:
+            shopify_csv = optional_param
 
         # cp the template into the export folder for editing
         copy_dhl_template_to_export_folder(DHL_TEMPLATE_FILE, EXPORT_PATH_NAME)

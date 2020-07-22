@@ -14,7 +14,7 @@ Currency - Currency Code <U>
 Total - Total Declared Value <V>
 'Watch Straps' - Shipment Description <AH>
 Lineitem name - Content Description <AL>
-Lineitem price - Content Unit Price <AO>
+Lineitem price - Co kntent Unit Price <AO>
 'SG' - Content Origin Country <AP>
 Lineitem quantity - Content Quantity <AQ>
 [Content Weight (g)] <AR>

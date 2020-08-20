@@ -27,6 +27,7 @@ from resources.dhl_index_mapping import *
 from resources.shipping_service import *
 from resources.shopify_index_mapping import *
 from resources.strap_stats import *
+from resources.incoterm import dict_incoterm
 
 DHL_DELIMITER = '\t'
 SHOPIFY_DELIMITER = ','
@@ -233,7 +234,12 @@ def populate_additional_data(wb, ws, filtered_dict):
         shipping_srv_code = ws.cell(row=i, column=cifs(xshipping_service_code))
         shipping_srv_code.value = get_shipping_srv_code(to_country.value)
 
-        wb.save(EXPORT_PATH_NAME.format(EXPORT_NAME))
+        # print(shipping_srv_code.value)
+        if shipping_srv_code.value in dict_incoterm.keys():
+            incoterm = ws.cell(row=i, column=cifs(xincoterm))
+            incoterm.value = dict_incoterm[shipping_srv_code.value]
+
+    wb.save(EXPORT_PATH_NAME.format(EXPORT_NAME))
 
 
 def main(optional_param=''):
